@@ -22,6 +22,39 @@ export default function ResearchPage() {
     },
   ];
 
+  const globalExamples = [
+    {
+      country: "United States",
+      example: "Canvas and Google Classroom workflows",
+      insight:
+        "Students often use learning management systems together with calendars and notes, but planning can still feel fragmented.",
+    },
+    {
+      country: "United Kingdom",
+      example: "MyStudyLife student planner",
+      insight:
+        "Student-focused planners show the value of combining schedules, tasks, and exams in one academic tool.",
+    },
+    {
+      country: "Finland",
+      example: "Digital school platforms",
+      insight:
+        "Centralized digital school systems show how students benefit when school information is organized in one place.",
+    },
+    {
+      country: "South Korea",
+      example: "Exam preparation and study planning tools",
+      insight:
+        "High-intensity academic environments highlight the need for structured study plans, deadlines, and progress tracking.",
+    },
+    {
+      country: "Mexico",
+      example: "WhatsApp, Google Calendar, notebooks, and notes apps",
+      insight:
+        "Many students combine informal tools, which creates an opportunity for a more organized school-specific dashboard.",
+    },
+  ];
+
   const competitors = [
     {
       tool: "Notion",
@@ -180,6 +213,35 @@ export default function ResearchPage() {
               </p>
             </article>
           ))}
+        </section>
+
+        <section className="mt-10 rounded-3xl border border-cyan-100 bg-white p-6 shadow-sm">
+          <div className="flex flex-col gap-2">
+            <h3 className="text-2xl font-bold">Global Examples</h3>
+            <p className="text-sm leading-6 text-slate-600">
+              These examples show how students in different contexts use digital
+              tools to organize classes, tasks, notes, exams, and study plans.
+            </p>
+          </div>
+
+          <div className="mt-6 grid gap-6 md:grid-cols-2 xl:grid-cols-5">
+            {globalExamples.map((item) => (
+              <article
+                key={item.country}
+                className="rounded-2xl border border-cyan-100 bg-cyan-50/60 p-5"
+              >
+                <p className="text-sm font-bold text-cyan-700">
+                  {item.country}
+                </p>
+
+                <h4 className="mt-2 font-bold">{item.example}</h4>
+
+                <p className="mt-2 text-sm leading-6 text-slate-600">
+                  {item.insight}
+                </p>
+              </article>
+            ))}
+          </div>
         </section>
 
         <section className="mt-10 rounded-3xl border border-cyan-100 bg-white shadow-sm">
