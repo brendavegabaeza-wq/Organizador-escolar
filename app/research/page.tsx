@@ -1,4 +1,27 @@
 export default function ResearchPage() {
+  const researchIntake = [
+    {
+      label: "Research Question",
+      value:
+        "Does School Organizer solve a real organization problem for students?",
+    },
+    {
+      label: "Target User",
+      value:
+        "University students who manage multiple classes, assignments, deadlines, notes, and study plans.",
+    },
+    {
+      label: "Research Category",
+      value:
+        "Problem validation, competitor benchmarking, localization, and risk analysis.",
+    },
+    {
+      label: "Validation Goal",
+      value:
+        "Identify whether School Organizer can offer a simpler academic workflow than general productivity tools.",
+    },
+  ];
+
   const summaryCards = [
     {
       title: "Problem Evidence",
@@ -81,8 +104,7 @@ export default function ResearchPage() {
       tool: "OneNote",
       strength: "Strong for note-taking and content organization.",
       weakness: "Can feel heavy and less modern for quick student planning.",
-      opportunity:
-        "Deliver a modern, lightweight note and study experience.",
+      opportunity: "Deliver a modern, lightweight note and study experience.",
     },
     {
       tool: "Microsoft To Do",
@@ -189,6 +211,34 @@ export default function ResearchPage() {
           Validate the School Organizer idea through research evidence,
           competitor comparison, localization, and risk analysis.
         </p>
+
+        <section className="mt-10 rounded-3xl border border-cyan-100 bg-white p-6 shadow-sm">
+          <div className="flex flex-col gap-2">
+            <h3 className="text-2xl font-bold">Research Intake</h3>
+            <p className="text-sm leading-6 text-slate-600">
+              This intake defines the research question, user segment, and
+              validation goal before reviewing competitors, global examples,
+              and product risks.
+            </p>
+          </div>
+
+          <div className="mt-6 grid gap-6 md:grid-cols-2 xl:grid-cols-4">
+            {researchIntake.map((item) => (
+              <article
+                key={item.label}
+                className="rounded-2xl border border-cyan-100 bg-cyan-50/60 p-5"
+              >
+                <p className="text-sm font-bold text-cyan-700">
+                  {item.label}
+                </p>
+
+                <p className="mt-2 text-sm leading-6 text-slate-600">
+                  {item.value}
+                </p>
+              </article>
+            ))}
+          </div>
+        </section>
 
         <section className="mt-10 grid gap-6 md:grid-cols-2 xl:grid-cols-4">
           {summaryCards.map((card) => (
