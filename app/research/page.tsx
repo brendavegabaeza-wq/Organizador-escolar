@@ -51,6 +51,40 @@ export default function ResearchPage() {
       opportunity:
         "Deliver a modern, lightweight note and study experience.",
     },
+    {
+      tool: "Microsoft To Do",
+      strength:
+        "Simple task lists, reminders, and Microsoft ecosystem integration.",
+      weakness:
+        "Limited academic planning structure and no dedicated subject-based notes.",
+      opportunity:
+        "Add student-specific task categories, class planning, and study workflow support.",
+    },
+    {
+      tool: "Trello",
+      strength: "Visual boards, cards, and workflow organization.",
+      weakness:
+        "Can become too manual and complex for students managing daily school tasks.",
+      opportunity:
+        "Provide simpler academic templates for assignments, subjects, deadlines, and study plans.",
+    },
+    {
+      tool: "Google Keep",
+      strength: "Quick note-taking, labels, and easy access across devices.",
+      weakness:
+        "Limited planning, deadline tracking, and structured academic organization.",
+      opportunity:
+        "Combine quick notes with subject organization, task planning, and calendar context.",
+    },
+    {
+      tool: "MyStudyLife",
+      strength:
+        "Designed for students with schedules, tasks, and academic planning.",
+      weakness:
+        "May not include flexible research validation, benchmarking, or custom project planning features.",
+      opportunity:
+        "Add a more customizable school workspace with research, AI planning, and localized student needs.",
+    },
   ];
 
   const risks = [
