@@ -1,177 +1,180 @@
-export default function Home() {
-  const features = [
+export default function HomePage() {
+  const benefits = [
     {
-      title: "Pending Tasks",
-      description: "Check and organize your assignments by subject.",
+      title: "Plan smarter",
+      text: "Organize assignments, notes, deadlines, and study goals in one clear place.",
     },
     {
-      title: "Academic Calendar",
-      description: "View due dates, exams, and important school events.",
+      title: "Reduce stress",
+      text: "Turn messy school responsibilities into a simple academic plan before school feels overwhelming.",
     },
     {
-      title: "8 Subjects",
-      description: "Organize your school information by subject.",
-    },
-    {
-      title: "Notes by Subject",
-      description: "Keep your notes in one organized place.",
+      title: "Build better habits",
+      text: "Use research, pricing, product planning, and marketing tools to improve the project each week.",
     },
   ];
 
-  const roadmap = [
-    "Week 0: Infrastructure",
-    "Version 1: Tasks",
-    "Version 2: Subjects",
-    "Version 3: Notes",
-    "Version 4: Supabase",
+  const modules = [
+    "Core Agent",
+    "Research Dashboard",
+    "Product Architecture",
+    "Pricing Simulator",
+    "Marketing Engine",
+    "Documentation",
   ];
 
   return (
-    <main className="min-h-screen bg-gradient-to-b from-purple-50 via-white to-purple-50 text-gray-900">
-      <nav className="flex items-center justify-between border-b border-purple-100 bg-white px-8 py-5 shadow-sm">
-        <h1 className="text-xl font-bold text-purple-700">
-          School Organizer
-        </h1>
+    <main className="min-h-screen bg-gradient-to-b from-rose-100 via-pink-50 to-red-100 text-slate-900">
+      <nav className="flex items-center justify-between border-b border-rose-100 bg-white px-8 py-5 shadow-sm">
+        <h1 className="text-xl font-bold text-rose-600">School Organizer</h1>
 
-        <div className="flex gap-5 text-sm font-medium text-gray-600">
-          <a href="/">Home</a>
-          <a href="#subjects">Subjects</a>
-          <a href="#calendar">Calendar</a>
+        <div className="flex gap-5 text-sm font-medium text-slate-600">
+          <a href="/" className="font-bold text-rose-600">
+            Home
+          </a>
+          <a href="/core">Core Agent</a>
+          <a href="/research">Research</a>
+          <a href="/product">Product</a>
+          <a href="/pricing">Pricing</a>
+          <a href="/marketing">Marketing</a>
           <a href="/docs">Docs</a>
         </div>
       </nav>
 
-      <section className="mx-auto grid max-w-6xl gap-10 px-6 py-20 md:grid-cols-2 md:items-center">
-        <div>
-          <p className="mb-4 inline-block rounded-full bg-purple-100 px-4 py-2 text-sm font-semibold text-purple-700">
-            Week 0 · Builder Infrastructure
-          </p>
+      <section className="mx-auto max-w-7xl px-6 py-16">
+        <div className="grid items-center gap-10 lg:grid-cols-2">
+          <div>
+            <p className="mb-4 inline-block rounded-full bg-rose-100 px-4 py-2 text-sm font-semibold text-rose-700">
+              Student-built product system
+            </p>
 
-          <h2 className="text-5xl font-bold tracking-tight">
-            School Organizer
-          </h2>
+            <h2 className="text-5xl font-bold leading-tight tracking-tight">
+              Organize school before school overwhelms you.
+            </h2>
 
-          <p className="mt-6 text-lg leading-8 text-gray-600">
-            Organize your tasks, subjects, calendar, and notes in one place.
-          </p>
+            <p className="mt-5 max-w-2xl text-lg leading-8 text-slate-600">
+              School Organizer helps students plan tasks, structure study
+              ideas, compare research, test pricing, and prepare marketing
+              content in one connected product system.
+            </p>
 
-          <div className="mt-8 flex gap-4">
-            <a
-              href="#features"
-              className="rounded-xl bg-purple-700 px-5 py-3 text-sm font-semibold text-white"
-            >
-              View Sections
-            </a>
+            <div className="mt-8 flex flex-wrap gap-4">
+              <a
+                href="/product"
+                className="rounded-2xl bg-rose-600 px-6 py-3 font-bold text-white shadow-sm hover:bg-rose-700"
+              >
+                View Product
+              </a>
 
-            <a
-              href="/docs"
-              className="rounded-xl border border-purple-200 bg-white px-5 py-3 text-sm font-semibold text-purple-700"
-            >
-              View Documentation
-            </a>
+              <a
+                href="/pricing"
+                className="rounded-2xl border border-rose-200 bg-white px-6 py-3 font-bold text-rose-700 hover:bg-rose-50"
+              >
+                Try Pricing
+              </a>
+
+              <a
+                href="/marketing"
+                className="rounded-2xl border border-rose-200 bg-rose-50 px-6 py-3 font-bold text-rose-700 hover:bg-rose-100"
+              >
+                Open Marketing Engine
+              </a>
+            </div>
           </div>
-        </div>
 
-        <div className="rounded-3xl border border-purple-100 bg-white p-6 shadow-xl">
-          <div className="rounded-2xl bg-purple-50 p-6">
-            <h3 className="text-xl font-bold">Student Dashboard</h3>
+          <div className="rounded-3xl border border-rose-100 bg-white p-6 shadow-sm">
+            <div className="rounded-2xl bg-gradient-to-br from-rose-50 to-red-50 p-6">
+              <p className="text-sm font-bold text-rose-700">
+                Weekly Product Progress
+              </p>
 
-            <div className="mt-5 grid gap-3">
-              <div className="rounded-xl bg-white p-4 shadow-sm">
-                Next due date: History project
-              </div>
-              <div className="rounded-xl bg-white p-4 shadow-sm">
-                Active subjects: 8
-              </div>
-              <div className="rounded-xl bg-white p-4 shadow-sm">
-                Saved notes: future version
+              <div className="mt-5 space-y-4">
+                {[
+                  "Week 1: Core Agent",
+                  "Week 2: Research Dashboard",
+                  "Week 3: Product + Pricing",
+                  "Week 4: Marketing Engine",
+                ].map((item) => (
+                  <div
+                    key={item}
+                    className="flex items-center justify-between rounded-2xl bg-white p-4 shadow-sm"
+                  >
+                    <span className="font-medium text-slate-700">{item}</span>
+                    <span className="rounded-full bg-rose-100 px-3 py-1 text-xs font-bold text-rose-700">
+                      Built
+                    </span>
+                  </div>
+                ))}
               </div>
             </div>
           </div>
         </div>
-      </section>
 
-      <section id="features" className="mx-auto max-w-6xl px-6 py-12">
-        <h2 className="text-center text-3xl font-bold">
-          Main Sections
-        </h2>
-
-        <p className="mx-auto mt-3 max-w-2xl text-center text-gray-600">
-          This first version shows the basic structure of the school organizer.
-        </p>
-
-        <div className="mt-10 grid gap-6 md:grid-cols-4">
-          {features.map((feature) => (
+        <section className="mt-14 grid gap-6 md:grid-cols-3">
+          {benefits.map((benefit) => (
             <article
-              key={feature.title}
-              className="rounded-2xl border border-purple-100 bg-white p-6 shadow-sm"
+              key={benefit.title}
+              className="rounded-3xl border border-rose-100 bg-white p-6 shadow-sm"
             >
-              <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-purple-100 text-2xl">
-                ✦
-              </div>
-              <h3 className="font-bold">{feature.title}</h3>
-              <p className="mt-2 text-sm leading-6 text-gray-600">
-                {feature.description}
+              <h3 className="text-xl font-bold text-slate-900">
+                {benefit.title}
+              </h3>
+              <p className="mt-3 text-sm leading-6 text-slate-600">
+                {benefit.text}
               </p>
             </article>
           ))}
-        </div>
-      </section>
+        </section>
 
-      <section id="subjects" className="mx-auto max-w-6xl px-6 py-12">
-        <div className="rounded-3xl border border-purple-100 bg-white p-8 shadow-sm">
-          <h2 className="text-2xl font-bold">8 Subjects</h2>
+        <section className="mt-14 rounded-3xl border border-rose-100 bg-white p-6 shadow-sm">
+          <div className="flex flex-col justify-between gap-4 md:flex-row md:items-center">
+            <div>
+              <h3 className="text-2xl font-bold">Product Modules</h3>
+              <p className="mt-2 text-sm text-slate-600">
+                School Organizer grows each week through connected product,
+                research, pricing, and marketing modules.
+              </p>
+            </div>
 
-          <p className="mt-2 text-gray-600">
-            In future versions, each subject will have its own tasks, due dates, and notes.
-          </p>
+            <a
+              href="/docs"
+              className="rounded-2xl border border-rose-200 bg-rose-50 px-5 py-3 text-sm font-bold text-rose-700 hover:bg-rose-100"
+            >
+              View Documentation
+            </a>
+          </div>
 
-          <div className="mt-6 grid gap-3 md:grid-cols-4">
-            {[
-              "Subject 1",
-              "Subject 2",
-              "Subject 3",
-              "Subject 4",
-              "Subject 5",
-              "Subject 6",
-              "Subject 7",
-              "Subject 8",
-            ].map((subject) => (
+          <div className="mt-6 grid gap-4 md:grid-cols-3">
+            {modules.map((module) => (
               <div
-                key={subject}
-                className="rounded-xl bg-purple-50 p-4 text-sm font-semibold text-purple-800"
+                key={module}
+                className="rounded-2xl border border-rose-100 bg-gradient-to-br from-rose-50 to-red-50 p-5"
               >
-                {subject}
+                <p className="font-bold text-slate-800">{module}</p>
               </div>
             ))}
           </div>
-        </div>
-      </section>
+        </section>
 
-      <section id="calendar" className="mx-auto max-w-6xl px-6 py-12">
-        <div className="rounded-3xl border border-purple-100 bg-white p-8 shadow-sm">
-          <h2 className="text-2xl font-bold">Roadmap</h2>
+        <section className="mt-14 rounded-3xl bg-gradient-to-r from-rose-600 to-red-500 p-8 text-white shadow-sm">
+          <h3 className="text-3xl font-bold">
+            Ready to test the Week 4 Marketing Engine?
+          </h3>
 
-          <p className="mt-2 text-gray-600">
-            The project will grow step by step to avoid building an app that is too large at the beginning.
+          <p className="mt-3 max-w-3xl leading-7 text-rose-50">
+            Compare marketing headlines, choose a winner, write a reason, and
+            save the result to Supabase so the decision remains available after
+            refresh.
           </p>
 
-          <div className="mt-6 grid gap-4 md:grid-cols-5">
-            {roadmap.map((item, index) => (
-              <div key={item} className="rounded-2xl bg-purple-50 p-4">
-                <div className="mb-3 flex h-8 w-8 items-center justify-center rounded-full bg-purple-700 text-sm font-bold text-white">
-                  {index + 1}
-                </div>
-                <p className="text-sm font-semibold">{item}</p>
-              </div>
-            ))}
-          </div>
-        </div>
+          <a
+            href="/marketing"
+            className="mt-6 inline-block rounded-2xl bg-white px-6 py-3 font-bold text-rose-700 hover:bg-rose-50"
+          >
+            Go to Marketing Engine
+          </a>
+        </section>
       </section>
-
-      <footer className="border-t border-purple-100 bg-white px-6 py-8 text-center text-sm text-gray-600">
-        Built by Michel Vega
-      </footer>
     </main>
   );
 }
