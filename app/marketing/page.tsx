@@ -1,17 +1,32 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { supabase } from "@/lib/supabaseClient";
 
 type Winner = "Headline A" | "Headline B";
+
+type MarketingAsset = {
+  id: string;
+  asset_type: string;
+  campaign_name: string;
+  headline_a: string | null;
+  headline_b: string | null;
+  winner: string | null;
+  reason: string | null;
+  content: string | null;
+  created_at: string;
+};
 
 export default function MarketingPage() {
   const [winner, setWinner] = useState<Winner>("Headline B");
   const [reason, setReason] = useState(
     "This headline speaks directly to student stress and makes the product value easier to understand."
   );
-  const [preparedAssets, setPreparedAssets] = useState<
-    { winner: Winner; reason: string; createdAt: string }[]
-  >([]);
+  const [savedAssets, setSavedAssets] = useState<MarketingAsset[]>([]);
+  const [status, setStatus] = useState(
+    "Choose a headline winner, write a reason, and save the marketing asset to Supabase."
+  );
+  const [isSaving, setIsSaving] = useState(false);
 
   const headlineA = "Plan smarter. Achieve more.";
   const headlineB = "Organize school before school overwhelms you.";
@@ -67,14 +82,53 @@ export default function MarketingPage() {
     ["Day 14", "Launch Recap", "Carousel"],
   ];
 
-  function prepareAsset() {
-    const asset = {
-      winner,
-      reason,
-      createdAt: new Date().toLocaleString(),
-    };
+  useEffect(() => {
+    fetchSavedAssets();
+  }, []);
 
-    setPreparedAssets([asset, ...preparedAssets]);
+  async function fetchSavedAssets() {
+    const { data, error } = await supabase
+      .from("marketing_assets")
+      .select("*")
+      .order("created_at", { ascending: false });
+
+    if (error) {
+      setStatus(`Supabase read error: ${error.message}`);
+      return;
+    }
+
+    setSavedAssets(data || []);
+  }
+
+  async function saveMarketingAsset() {
+    setIsSaving(true);
+    setStatus("Saving marketing asset to Supabase...");
+
+    const winningHeadline = winner === "Headline A" ? headlineA : headlineB;
+
+    const { error } = await supabase.from("marketing_assets").insert([
+      {
+        asset_type: "A/B Headline Test",
+        campaign_name: "Week 4 Launch Campaign",
+        headline_a: headlineA,
+        headline_b: headlineB,
+        winner,
+        reason,
+        content: winningHeadline,
+      },
+    ]);
+
+    if (error) {
+      setStatus(`Supabase save error: ${error.message}`);
+      setIsSaving(false);
+      return;
+    }
+
+    setStatus(
+      "Marketing asset saved to Supabase. Refresh the page to verify persistence."
+    );
+    setIsSaving(false);
+    fetchSavedAssets();
   }
 
   return (
@@ -105,9 +159,10 @@ export default function MarketingPage() {
         </h2>
 
         <p className="mt-4 max-w-3xl text-lg leading-8 text-slate-600">
-          Plan, test, and prepare marketing assets for School Organizer. This
-          page includes brand strategy, content ideas, video scripts, a campaign
-          calendar, and an interactive A/B headline tester.
+          Plan, test, save, and review marketing assets for School Organizer.
+          This page includes brand strategy, content ideas, video scripts, a
+          campaign calendar, an interactive A/B headline tester, and Supabase
+          persistence.
         </p>
 
         <section className="mt-10 grid gap-6 md:grid-cols-3">
@@ -204,8 +259,8 @@ export default function MarketingPage() {
             </h3>
 
             <p className="mt-2 text-sm text-slate-600">
-              Compare two headlines, choose the stronger message, and explain
-              the decision.
+              Compare two headlines, choose the stronger message, explain the
+              decision, and save the result to Supabase.
             </p>
 
             <div className="mt-6 grid gap-4 md:grid-cols-2">
@@ -246,11 +301,16 @@ export default function MarketingPage() {
             </label>
 
             <button
-              onClick={prepareAsset}
-              className="mt-5 rounded-2xl bg-rose-600 px-6 py-3 font-bold text-white hover:bg-rose-700"
+              onClick={saveMarketingAsset}
+              disabled={isSaving}
+              className="mt-5 rounded-2xl bg-rose-600 px-6 py-3 font-bold text-white hover:bg-rose-700 disabled:opacity-60"
             >
-              Prepare Marketing Asset
+              {isSaving ? "Saving..." : "Save Marketing Asset to Supabase"}
             </button>
+
+            <p className="mt-4 rounded-2xl bg-rose-50 p-4 text-sm font-medium text-rose-700">
+              Status: {status}
+            </p>
           </article>
 
           <article className="rounded-3xl border border-rose-100 bg-white p-6 shadow-sm">
@@ -274,8 +334,8 @@ export default function MarketingPage() {
             </div>
 
             <div className="mt-6 rounded-2xl border border-dashed border-rose-200 bg-white p-5 text-sm text-slate-600">
-              In the next step, this prepared asset will be saved to Supabase
-              and displayed after refresh.
+              This preview shows the marketing asset before it is saved. After
+              saving, the asset is stored in Supabase and displayed below.
             </div>
           </article>
         </section>
@@ -283,39 +343,52 @@ export default function MarketingPage() {
         <section className="mt-10 rounded-3xl border border-rose-100 bg-white p-6 shadow-sm">
           <div className="flex items-center justify-between gap-4">
             <div>
-              <h3 className="text-2xl font-bold">Prepared Marketing Assets</h3>
+              <h3 className="text-2xl font-bold">
+                Saved Marketing Assets from Supabase
+              </h3>
               <p className="mt-2 text-sm text-slate-600">
-                These assets are prepared locally in this step. In the next
-                step, they will be saved to Supabase.
+                These assets are loaded from Supabase. Refresh the page to
+                confirm that saved assets remain available.
               </p>
             </div>
 
             <p className="rounded-full bg-rose-100 px-4 py-2 text-sm font-bold text-rose-700">
-              {preparedAssets.length} prepared
+              {savedAssets.length} saved
             </p>
           </div>
 
-          {preparedAssets.length === 0 ? (
+          {savedAssets.length === 0 ? (
             <div className="mt-6 rounded-2xl border border-dashed border-rose-200 bg-rose-50 p-6 text-sm text-slate-600">
-              No prepared assets yet. Choose a headline winner, write a reason,
-              and click Prepare Marketing Asset.
+              No saved assets yet. Choose a headline winner, write a reason,
+              and click Save Marketing Asset to Supabase.
             </div>
           ) : (
             <div className="mt-6 grid gap-6 md:grid-cols-3">
-              {preparedAssets.map((asset, index) => (
+              {savedAssets.map((asset) => (
                 <article
-                  key={`${asset.createdAt}-${index}`}
+                  key={asset.id}
                   className="rounded-2xl border border-rose-100 bg-rose-50 p-5"
                 >
                   <p className="text-xs font-bold uppercase tracking-wide text-rose-700">
-                    A/B Test
+                    {asset.asset_type}
                   </p>
+
                   <h4 className="mt-2 text-lg font-bold">{asset.winner}</h4>
+
+                  <p className="mt-3 text-sm font-bold text-slate-700">
+                    {asset.content}
+                  </p>
+
                   <p className="mt-3 text-sm leading-6 text-slate-600">
                     {asset.reason}
                   </p>
+
                   <p className="mt-4 text-xs text-slate-500">
-                    Prepared: {asset.createdAt}
+                    Campaign: {asset.campaign_name}
+                  </p>
+
+                  <p className="mt-1 text-xs text-slate-500">
+                    Saved: {new Date(asset.created_at).toLocaleString()}
                   </p>
                 </article>
               ))}
