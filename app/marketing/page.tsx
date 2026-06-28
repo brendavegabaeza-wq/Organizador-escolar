@@ -100,11 +100,13 @@ export default function MarketingPage() {
     setSavedAssets(data || []);
   }
 
+  function getWinningHeadline() {
+    return winner === "Headline A" ? headlineA : headlineB;
+  }
+
   async function saveMarketingAsset() {
     setIsSaving(true);
     setStatus("Saving marketing asset to Supabase...");
-
-    const winningHeadline = winner === "Headline A" ? headlineA : headlineB;
 
     const { error } = await supabase.from("marketing_assets").insert([
       {
@@ -114,7 +116,7 @@ export default function MarketingPage() {
         headline_b: headlineB,
         winner,
         reason,
-        content: winningHeadline,
+        content: getWinningHeadline(),
       },
     ]);
 
@@ -129,6 +131,35 @@ export default function MarketingPage() {
     );
     setIsSaving(false);
     fetchSavedAssets();
+  }
+
+  async function copyWinningHeadline() {
+    await navigator.clipboard.writeText(getWinningHeadline());
+    setStatus("Winning headline copied to clipboard.");
+  }
+
+  async function copyReason() {
+    await navigator.clipboard.writeText(reason);
+    setStatus("Decision reason copied to clipboard.");
+  }
+
+  function exportSavedAssets() {
+    if (savedAssets.length === 0) {
+      setStatus("There are no saved assets to export yet.");
+      return;
+    }
+
+    const exportData = JSON.stringify(savedAssets, null, 2);
+    const blob = new Blob([exportData], { type: "application/json" });
+    const url = URL.createObjectURL(blob);
+
+    const link = document.createElement("a");
+    link.href = url;
+    link.download = "school-organizer-marketing-assets.json";
+    link.click();
+
+    URL.revokeObjectURL(url);
+    setStatus("Saved marketing assets exported as a JSON file.");
   }
 
   return (
@@ -159,10 +190,10 @@ export default function MarketingPage() {
         </h2>
 
         <p className="mt-4 max-w-3xl text-lg leading-8 text-slate-600">
-          Plan, test, save, and review marketing assets for School Organizer.
-          This page includes brand strategy, content ideas, video scripts, a
-          campaign calendar, an interactive A/B headline tester, and Supabase
-          persistence.
+          Plan, test, save, copy, export, and review marketing assets for School
+          Organizer. This page includes brand strategy, content ideas, video
+          scripts, a campaign calendar, an interactive A/B headline tester, and
+          Supabase persistence.
         </p>
 
         <section className="mt-10 grid gap-6 md:grid-cols-3">
@@ -260,7 +291,8 @@ export default function MarketingPage() {
 
             <p className="mt-2 text-sm text-slate-600">
               Compare two headlines, choose the stronger message, explain the
-              decision, and save the result to Supabase.
+              decision, save the result to Supabase, and copy or export the
+              marketing asset.
             </p>
 
             <div className="mt-6 grid gap-4 md:grid-cols-2">
@@ -308,6 +340,22 @@ export default function MarketingPage() {
               {isSaving ? "Saving..." : "Save Marketing Asset to Supabase"}
             </button>
 
+            <div className="mt-4 flex flex-wrap gap-3">
+              <button
+                onClick={copyWinningHeadline}
+                className="rounded-2xl border border-rose-200 bg-white px-5 py-3 text-sm font-bold text-rose-700 hover:bg-rose-50"
+              >
+                Copy Winning Headline
+              </button>
+
+              <button
+                onClick={copyReason}
+                className="rounded-2xl border border-rose-200 bg-white px-5 py-3 text-sm font-bold text-rose-700 hover:bg-rose-50"
+              >
+                Copy Reason
+              </button>
+            </div>
+
             <p className="mt-4 rounded-2xl bg-rose-50 p-4 text-sm font-medium text-rose-700">
               Status: {status}
             </p>
@@ -325,9 +373,7 @@ export default function MarketingPage() {
               <p className="mt-5 text-sm font-bold text-rose-700">
                 Winning Headline
               </p>
-              <p className="mt-2">
-                {winner === "Headline A" ? headlineA : headlineB}
-              </p>
+              <p className="mt-2">{getWinningHeadline()}</p>
 
               <p className="mt-5 text-sm font-bold text-rose-700">Reason</p>
               <p className="mt-2 text-sm leading-6 text-slate-600">{reason}</p>
@@ -341,7 +387,7 @@ export default function MarketingPage() {
         </section>
 
         <section className="mt-10 rounded-3xl border border-rose-100 bg-white p-6 shadow-sm">
-          <div className="flex items-center justify-between gap-4">
+          <div className="flex flex-col justify-between gap-4 md:flex-row md:items-center">
             <div>
               <h3 className="text-2xl font-bold">
                 Saved Marketing Assets from Supabase
@@ -352,9 +398,18 @@ export default function MarketingPage() {
               </p>
             </div>
 
-            <p className="rounded-full bg-rose-100 px-4 py-2 text-sm font-bold text-rose-700">
-              {savedAssets.length} saved
-            </p>
+            <div className="flex flex-wrap items-center gap-3">
+              <button
+                onClick={exportSavedAssets}
+                className="rounded-2xl border border-rose-200 bg-white px-5 py-3 text-sm font-bold text-rose-700 hover:bg-rose-50"
+              >
+                Export Saved Assets
+              </button>
+
+              <p className="rounded-full bg-rose-100 px-4 py-2 text-sm font-bold text-rose-700">
+                {savedAssets.length} saved
+              </p>
+            </div>
           </div>
 
           {savedAssets.length === 0 ? (
