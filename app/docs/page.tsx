@@ -1,26 +1,25 @@
 export default function DocsPage() {
   return (
-    <main className="min-h-screen bg-gradient-to-b from-rose-100 via-pink-50 to-red-100 text-gray-900">
-      <nav className="flex items-center justify-between border-b border-rose-100 bg-white px-8 py-5 shadow-sm">
-        <h1 className="text-xl font-bold text-rose-600">
-          School Organizer
-        </h1>
+    <main className="min-h-screen bg-gradient-to-b from-yellow-50 via-amber-50 to-white text-slate-900">
+      <nav className="flex items-center justify-between border-b border-amber-100 bg-white px-8 py-5 shadow-sm">
+        <h1 className="text-xl font-bold text-amber-600">School Organizer</h1>
 
-        <div className="flex gap-5 text-sm font-medium text-gray-600">
+        <div className="flex gap-5 text-sm font-medium text-slate-600">
           <a href="/">Home</a>
           <a href="/core">Core Agent</a>
           <a href="/research">Research</a>
           <a href="/product">Product</a>
           <a href="/pricing">Pricing</a>
           <a href="/marketing">Marketing</a>
-          <a href="/docs" className="font-bold text-rose-600">
+          <a href="/chat">Chat</a>
+          <a href="/docs" className="font-bold text-amber-600">
             Docs
           </a>
         </div>
       </nav>
 
-      <section className="mx-auto max-w-4xl px-6 py-16">
-        <p className="mb-4 inline-block rounded-full bg-rose-100 px-4 py-2 text-sm font-semibold text-rose-700">
+      <section className="mx-auto max-w-5xl px-6 py-16">
+        <p className="mb-4 inline-block rounded-full bg-amber-100 px-4 py-2 text-sm font-semibold text-amber-700">
           Documentation
         </p>
 
@@ -28,208 +27,220 @@ export default function DocsPage() {
           School Organizer Documentation
         </h2>
 
-        <p className="mt-4 text-lg leading-8 text-gray-600">
-          This documentation page explains the purpose, technical structure,
-          product modules, pricing simulator, marketing engine, Supabase
-          persistence, testing plan, and future data structure for the School
-          Organizer project.
+        <p className="mt-4 text-lg leading-8 text-slate-600">
+          This documentation page summarizes the full School Organizer product
+          stack from Week 1 through Week 5. It explains the project purpose,
+          weekly features, interaction loops, Supabase persistence, testing
+          plan, and external user testing evidence.
         </p>
 
         <div className="mt-10 grid gap-6">
-          <section className="rounded-2xl border border-rose-100 bg-white p-6 shadow-sm">
-            <h3 className="text-xl font-bold">Purpose</h3>
-            <p className="mt-2 text-gray-600">
+          <section className="rounded-3xl border border-amber-100 bg-white p-6 shadow-sm">
+            <h3 className="text-xl font-bold text-amber-700">Purpose</h3>
+            <p className="mt-3 leading-7 text-slate-600">
               School Organizer helps students organize tasks, subjects,
-              calendar events, notes, study plans, research insights, pricing
-              scenarios, and marketing decisions in one connected product
-              system.
+              deadlines, study plans, research insights, pricing scenarios,
+              marketing decisions, and guided academic support in one connected
+              product system.
             </p>
           </section>
 
-          <section className="rounded-2xl border border-rose-100 bg-white p-6 shadow-sm">
-            <h3 className="text-xl font-bold">
+          <section className="rounded-3xl border border-amber-100 bg-white p-6 shadow-sm">
+            <h3 className="text-xl font-bold text-amber-700">
               Week 1 Feature: Generative Core Agent
             </h3>
-            <p className="mt-2 text-gray-600">
-              The Week 1 feature adds a Generative Core Agent at /core. This
-              page helps students turn messy school ideas into structured study
-              plans with Purpose, Key Components, User Need, Next Steps, and
-              School Organizer Use.
+            <p className="mt-3 leading-7 text-slate-600">
+              Week 1 added a /core page that helps students turn messy school
+              ideas into a structured academic plan. The Core Agent organizes
+              the user idea into purpose, key components, user need, next steps,
+              and School Organizer use.
             </p>
           </section>
 
-          <section className="rounded-2xl border border-rose-100 bg-white p-6 shadow-sm">
-            <h3 className="text-xl font-bold">
+          <section className="rounded-3xl border border-amber-100 bg-white p-6 shadow-sm">
+            <h3 className="text-xl font-bold text-amber-700">
               Week 2 Feature: Research + Benchmarking Dashboard
             </h3>
-            <p className="mt-2 text-gray-600">
-              The Week 2 feature adds a /research page to validate the School
-              Organizer idea through problem evidence, global examples,
-              competitor benchmarking, Mexico localization, risk mapping, and
-              saved research outputs.
+            <p className="mt-3 leading-7 text-slate-600">
+              Week 2 added a /research page to validate the School Organizer
+              idea through problem evidence, global examples, competitor
+              benchmarking, Mexico localization, risk mapping, and saved
+              research outputs.
             </p>
-
-            <ul className="mt-3 list-disc space-y-2 pl-5 text-gray-600">
-              <li>Problem Evidence</li>
-              <li>Global Examples</li>
-              <li>Competitor Benchmark</li>
-              <li>Mexico Localization</li>
-              <li>Risk Map</li>
-              <li>Saved Research Outputs</li>
+            <ul className="mt-4 list-disc space-y-2 pl-5 text-slate-600">
+              <li>Problem evidence</li>
+              <li>Global examples</li>
+              <li>Competitor benchmark</li>
+              <li>Mexico localization</li>
+              <li>Risk map</li>
+              <li>Saved research outputs</li>
             </ul>
           </section>
 
-          <section className="rounded-2xl border border-rose-100 bg-white p-6 shadow-sm">
-            <h3 className="text-xl font-bold">
+          <section className="rounded-3xl border border-amber-100 bg-white p-6 shadow-sm">
+            <h3 className="text-xl font-bold text-amber-700">
               Week 3 Feature: Product Architecture + Pricing Simulator
             </h3>
-
-            <p className="mt-2 text-gray-600">
-              Week 3 adds /product and /pricing. The /product page explains the
-              product architecture, feature map, core modules, and product flow.
-              The /pricing page includes an interactive pricing simulator that
-              allows users to enter assumptions, calculate revenue, save pricing
-              scenarios, and verify persistence after refreshing the browser.
+            <p className="mt-3 leading-7 text-slate-600">
+              Week 3 added /product and /pricing. The /product page explains
+              the product architecture, feature map, core modules, and product
+              flow. The /pricing page includes an interactive pricing simulator
+              that calculates revenue and saves pricing scenarios.
             </p>
-
-            <ul className="mt-3 list-disc space-y-2 pl-5 text-gray-600">
+            <ul className="mt-4 list-disc space-y-2 pl-5 text-slate-600">
               <li>/product page for product architecture and feature mapping.</li>
               <li>/pricing page for interactive pricing and revenue simulation.</li>
               <li>Three pricing tiers: Free, Student Plus, and School Pro.</li>
-              <li>Revenue outputs: paying users, monthly revenue, and annual revenue.</li>
               <li>Saved pricing scenarios using localStorage persistence.</li>
             </ul>
           </section>
 
-          <section className="rounded-2xl border border-rose-100 bg-white p-6 shadow-sm">
-            <h3 className="text-xl font-bold">
-              Week 4 Feature: Marketing Engine + Supabase Content System
+          <section className="rounded-3xl border border-amber-100 bg-white p-6 shadow-sm">
+            <h3 className="text-xl font-bold text-amber-700">
+              Week 4 Feature: Marketing Engine + Content System
             </h3>
-
-            <p className="mt-2 text-gray-600">
-              Week 4 adds a /marketing page and improves the homepage as a
+            <p className="mt-3 leading-7 text-slate-600">
+              Week 4 added a /marketing page and improved the homepage as a
               product landing page. The Marketing Engine includes brand system,
-              target persona, landing page copy, 10 social media posts, 3 video
-              scripts, a 14-day campaign calendar, an interactive A/B headline
-              tester, and saved marketing assets connected to Supabase.
+              target persona, landing page copy, social posts, video scripts,
+              campaign calendar, A/B headline testing, copy/export buttons, and
+              Supabase storage.
             </p>
-
-            <ul className="mt-3 list-disc space-y-2 pl-5 text-gray-600">
-              <li>Improved homepage with Week 4 Marketing Engine navigation.</li>
-              <li>/marketing page for marketing content planning.</li>
-              <li>A/B headline tester with user input and decision reason.</li>
-              <li>Saved marketing assets stored in Supabase.</li>
-              <li>Saved assets remain available after refresh.</li>
+            <ul className="mt-4 list-disc space-y-2 pl-5 text-slate-600">
+              <li>Brand system and target persona.</li>
+              <li>Landing page copy and marketing content.</li>
+              <li>10 social media posts.</li>
+              <li>3 short video scripts.</li>
+              <li>14-day campaign calendar.</li>
+              <li>A/B headline tester.</li>
+              <li>Copy and export buttons.</li>
+              <li>Saved marketing assets in Supabase.</li>
             </ul>
           </section>
 
-          <section className="rounded-2xl border border-rose-100 bg-white p-6 shadow-sm">
-            <h3 className="text-xl font-bold">Week 4 Interaction Loop</h3>
-
-            <p className="mt-2 text-gray-600">
-              The main Week 4 interaction loop happens inside the /marketing
-              page. The user compares two headline options, selects a winner,
-              writes a reason, saves the result to Supabase, and then sees the
-              saved asset displayed on the page.
-            </p>
-
-            <ul className="mt-3 list-disc space-y-2 pl-5 text-gray-600">
-              <li>Input: user selects Headline A or Headline B and writes a reason.</li>
-              <li>Processing: the app formats the winning headline as a marketing asset.</li>
-              <li>Output: the saved asset appears in the Saved Marketing Assets section.</li>
-              <li>Persistence: Supabase stores the asset and loads it again after refresh.</li>
-            </ul>
-          </section>
-
-          <section className="rounded-2xl border border-rose-100 bg-white p-6 shadow-sm">
-            <h3 className="text-xl font-bold">A/B Headline Test</h3>
-
-            <p className="mt-2 text-gray-600">
-              The A/B headline tester helps compare two marketing messages for
-              School Organizer. This supports product decision-making because it
-              forces the builder to choose which message better communicates the
-              product value to students.
-            </p>
-
-            <div className="mt-4 rounded-xl bg-rose-50 p-4 text-sm leading-6 text-gray-700">
-              <p className="font-bold text-rose-700">Headline A:</p>
-              <p>Plan smarter. Achieve more.</p>
-
-              <p className="mt-3 font-bold text-rose-700">Headline B:</p>
-              <p>Organize school before school overwhelms you.</p>
-
-              <p className="mt-3 font-bold text-rose-700">Decision:</p>
-              <p>
-                Headline B is stronger because it connects directly with
-                student stress, deadlines, and school responsibilities.
-              </p>
-            </div>
-          </section>
-
-          <section className="rounded-2xl border border-rose-100 bg-white p-6 shadow-sm">
-            <h3 className="text-xl font-bold">Week 4 Marketing Content</h3>
-
-            <p className="mt-2 text-gray-600">
-              The Marketing Engine includes reusable launch content for School
-              Organizer. This content helps explain how the product could be
-              communicated through social media, short videos, and a simple
-              campaign calendar.
-            </p>
-
-            <ul className="mt-3 list-disc space-y-2 pl-5 text-gray-600">
-              <li>10 social posts for short-form marketing content.</li>
-              <li>3 video scripts for TikTok, Instagram Reels, or ads.</li>
-              <li>14-day campaign calendar for a structured launch plan.</li>
-              <li>Landing page copy with headline, value proposition, and CTA.</li>
-            </ul>
-          </section>
-
-          <section className="rounded-2xl border border-rose-100 bg-white p-6 shadow-sm">
-            <h3 className="text-xl font-bold">Tech Stack</h3>
-
-            <ul className="mt-3 list-disc space-y-2 pl-5 text-gray-600">
-              <li>Next.js for the web application and route structure.</li>
-              <li>React state for the interactive A/B headline tester.</li>
-              <li>Tailwind CSS for layout, colors, spacing, and styling.</li>
-              <li>Supabase for backend database persistence.</li>
-              <li>GitHub for version control and commit history.</li>
-              <li>Vercel for deployment and live testing.</li>
-            </ul>
-          </section>
-
-          <section className="rounded-2xl border border-rose-100 bg-white p-6 shadow-sm">
-            <h3 className="text-xl font-bold">
-              Supabase Table: marketing_assets
+          <section className="rounded-3xl border border-amber-100 bg-white p-6 shadow-sm">
+            <h3 className="text-xl font-bold text-amber-700">
+              Week 5 Feature: Public Guided Academic Assistant
             </h3>
-
-            <p className="mt-2 text-gray-600">
-              Week 4 uses a real Supabase table called marketing_assets to store
-              saved marketing decisions from the A/B headline tester.
+            <p className="mt-3 leading-7 text-slate-600">
+              Week 5 added a /chat page where external users can interact with a
+              public guided academic assistant. The assistant asks three intake
+              questions, generates a structured academic support summary,
+              includes a guardrail response, shows a human checkpoint, collects
+              Helpful / Not Helpful feedback, and saves chat sessions to
+              Supabase.
             </p>
+            <ul className="mt-4 list-disc space-y-2 pl-5 text-slate-600">
+              <li>/chat page for the public guided assistant.</li>
+              <li>Three intake questions for priority, deadline, and support type.</li>
+              <li>Generated academic support summary.</li>
+              <li>Guardrail response for inappropriate academic requests.</li>
+              <li>Human checkpoint for urgent or high-stakes situations.</li>
+              <li>Helpful / Not Helpful rating buttons.</li>
+              <li>Saved chat sessions in Supabase.</li>
+              <li>Three external user tests documented through saved sessions.</li>
+            </ul>
+          </section>
 
-            <ul className="mt-3 list-disc space-y-2 pl-5 text-gray-600">
+          <section className="rounded-3xl border border-amber-100 bg-white p-6 shadow-sm">
+            <h3 className="text-xl font-bold text-amber-700">
+              Week 5 Interaction Loop
+            </h3>
+            <p className="mt-3 leading-7 text-slate-600">
+              The /chat assistant demonstrates a complete interaction loop:
+              user input, assistant logic, output, feedback, and persistence.
+            </p>
+            <ul className="mt-4 list-disc space-y-2 pl-5 text-slate-600">
+              <li>Input: tester label, school priority, deadline, and support type.</li>
+              <li>Processing: the app checks for unsafe requests and generates a guided response.</li>
+              <li>Output: academic support summary or guardrail response.</li>
+              <li>Feedback: Helpful / Not Helpful rating and brief feedback.</li>
+              <li>Persistence: Supabase stores and reloads saved chat sessions.</li>
+            </ul>
+          </section>
+
+          <section className="rounded-3xl border border-amber-100 bg-white p-6 shadow-sm">
+            <h3 className="text-xl font-bold text-amber-700">
+              Guardrail Response
+            </h3>
+            <p className="mt-3 leading-7 text-slate-600">
+              The assistant does not complete homework, essays, tests, or
+              assignments for the user. If a user asks for inappropriate help,
+              the assistant redirects them toward understanding the task,
+              organizing next steps, creating a study plan, or preparing
+              questions for a teacher.
+            </p>
+          </section>
+
+          <section className="rounded-3xl border border-amber-100 bg-white p-6 shadow-sm">
+            <h3 className="text-xl font-bold text-amber-700">
+              Human Decision Checkpoint
+            </h3>
+            <p className="mt-3 leading-7 text-slate-600">
+              The /chat assistant includes a human checkpoint reminding users to
+              contact a teacher, advisor, or trusted adult if the task affects
+              their final grade, feels urgent, or involves personal stress.
+            </p>
+          </section>
+
+          <section className="rounded-3xl border border-amber-100 bg-white p-6 shadow-sm">
+            <h3 className="text-xl font-bold text-amber-700">
+              Supabase Tables
+            </h3>
+            <p className="mt-3 leading-7 text-slate-600">
+              School Organizer uses Supabase to store Week 4 and Week 5 data.
+            </p>
+            <ul className="mt-4 list-disc space-y-2 pl-5 text-slate-600">
+              <li>marketing_assets: stores Week 4 marketing decisions.</li>
+              <li>chat_sessions: stores Week 5 guided assistant sessions.</li>
+            </ul>
+          </section>
+
+          <section className="rounded-3xl border border-amber-100 bg-white p-6 shadow-sm">
+            <h3 className="text-xl font-bold text-amber-700">
+              chat_sessions Data Structure
+            </h3>
+            <ul className="mt-4 list-disc space-y-2 pl-5 text-slate-600">
               <li>id</li>
-              <li>asset_type</li>
-              <li>campaign_name</li>
-              <li>headline_a</li>
-              <li>headline_b</li>
-              <li>winner</li>
-              <li>reason</li>
-              <li>content</li>
+              <li>tester_label</li>
+              <li>priority</li>
+              <li>deadline</li>
+              <li>help_type</li>
+              <li>assistant_summary</li>
+              <li>guardrail_triggered</li>
+              <li>rating</li>
+              <li>feedback</li>
               <li>created_at</li>
             </ul>
           </section>
 
-          <section className="rounded-2xl border border-rose-100 bg-white p-6 shadow-sm">
-            <h3 className="text-xl font-bold">Testing Plan</h3>
+          <section className="rounded-3xl border border-amber-100 bg-white p-6 shadow-sm">
+            <h3 className="text-xl font-bold text-amber-700">
+              External User Testing
+            </h3>
+            <p className="mt-3 leading-7 text-slate-600">
+              Three external users tested the /chat guided assistant. Each
+              tester completed the intake questions, reviewed the assistant
+              response, rated the response, provided brief feedback, and saved
+              the session to Supabase.
+            </p>
+            <ul className="mt-4 list-disc space-y-2 pl-5 text-slate-600">
+              <li>External Tester 1 completed the guided assistant flow.</li>
+              <li>External Tester 2 completed the guided assistant flow.</li>
+              <li>External Tester 3 completed the guided assistant flow.</li>
+              <li>Supabase stores all three external test records.</li>
+            </ul>
+          </section>
 
-            <ul className="mt-3 list-disc space-y-2 pl-5 text-gray-600">
-              <li>Test 1: Open the improved homepage and confirm Marketing navigation works.</li>
-              <li>Test 2: Open /marketing and confirm the page loads correctly.</li>
-              <li>Test 3: Select a headline winner and confirm the live preview updates.</li>
-              <li>Test 4: Save the marketing asset and confirm it appears on the page.</li>
-              <li>Test 5: Confirm the saved asset appears inside Supabase.</li>
-              <li>Test 6: Refresh /marketing and confirm the saved asset remains visible.</li>
+          <section className="rounded-3xl border border-amber-100 bg-white p-6 shadow-sm">
+            <h3 className="text-xl font-bold text-amber-700">Testing Plan</h3>
+            <ul className="mt-4 list-disc space-y-2 pl-5 text-slate-600">
+              <li>Test 1: Open /chat and confirm the guided assistant loads.</li>
+              <li>Test 2: Answer the three intake questions and generate a response.</li>
+              <li>Test 3: Trigger the guardrail response with an inappropriate homework request.</li>
+              <li>Test 4: Select Helpful or Not Helpful and save the session.</li>
+              <li>Test 5: Confirm the saved session appears in Supabase.</li>
+              <li>Test 6: Refresh /chat and confirm saved sessions remain visible.</li>
               <li>Test 7: Repeat testing on the deployed Vercel URL.</li>
             </ul>
           </section>
