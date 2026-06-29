@@ -31,7 +31,8 @@ export default function DocsPage() {
           This documentation page summarizes the full School Organizer product
           stack from Week 1 through Week 5. It explains the project purpose,
           weekly features, interaction loops, Supabase persistence, testing
-          evidence, external user testing, and Week 5 development progress.
+          evidence, external user testing, deployment history, and Week 5
+          development progress.
         </p>
 
         <div className="mt-10 grid gap-6">
@@ -249,15 +250,26 @@ export default function DocsPage() {
               development process for the Public Guided Academic Assistant.
               These commits document the creation of the /chat page, guided
               assistant logic, documentation updates, external testing notes,
-              and guardrail documentation.
+              guardrail documentation, and final Week 5 evidence.
             </p>
             <ol className="mt-4 list-decimal space-y-2 pl-5 text-slate-600">
               <li>Add Week 5 guided chat assistant.</li>
               <li>Update docs for Week 5 guided assistant.</li>
               <li>Refine Week 5 chat assistant instructions.</li>
-              <li>Add Week 5 external testing notes to docs.</li>
               <li>Document Week 5 guardrail decision.</li>
+              <li>Finalize Week 5 evidence documentation.</li>
             </ol>
+          </section>
+
+          <section className="rounded-3xl border border-amber-100 bg-white p-6 shadow-sm">
+            <h3 className="text-xl font-bold text-amber-700">
+              Deployment Evidence
+            </h3>
+            <p className="mt-3 leading-7 text-slate-600">
+              Week 5 was deployed to Vercel multiple times. The deployment
+              history shows production deployments for adding the guided chat
+              assistant and updating the Week 5 documentation.
+            </p>
           </section>
 
           <section className="rounded-3xl border border-amber-100 bg-white p-6 shadow-sm">
