@@ -171,7 +171,8 @@ Human checkpoint: If this task affects your final grade, feels urgent, or involv
 
         <p className="mt-4 max-w-3xl text-lg leading-8 text-slate-600">
           Answer three intake questions, receive a guided academic support
-          response, rate the response, and save the session to Supabase.
+response, review the human checkpoint, rate the response, and save
+the session to Supabase.
         </p>
 
         <section className="mt-10 grid gap-6 lg:grid-cols-2">
