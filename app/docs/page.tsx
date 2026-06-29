@@ -31,7 +31,7 @@ export default function DocsPage() {
           This documentation page summarizes the full School Organizer product
           stack from Week 1 through Week 5. It explains the project purpose,
           weekly features, interaction loops, Supabase persistence, testing
-          plan, and external user testing evidence.
+          evidence, external user testing, and Week 5 development progress.
         </p>
 
         <div className="mt-10 grid gap-6">
@@ -168,7 +168,9 @@ export default function DocsPage() {
               assignments for the user. If a user asks for inappropriate help,
               the assistant redirects them toward understanding the task,
               organizing next steps, creating a study plan, or preparing
-              questions for a teacher.
+              questions for a teacher. This guardrail supports academic
+              integrity by refusing to complete work for the user while still
+              offering safe organization help.
             </p>
           </section>
 
@@ -180,6 +182,8 @@ export default function DocsPage() {
               The /chat assistant includes a human checkpoint reminding users to
               contact a teacher, advisor, or trusted adult if the task affects
               their final grade, feels urgent, or involves personal stress.
+              This keeps the assistant supportive without replacing human
+              judgment.
             </p>
           </section>
 
@@ -229,7 +233,31 @@ export default function DocsPage() {
               <li>External Tester 2 completed the guided assistant flow.</li>
               <li>External Tester 3 completed the guided assistant flow.</li>
               <li>Supabase stores all three external test records.</li>
+              <li>
+                Tester feedback was used to identify future improvements for
+                more specific assistant responses.
+              </li>
             </ul>
+          </section>
+
+          <section className="rounded-3xl border border-amber-100 bg-white p-6 shadow-sm">
+            <h3 className="text-xl font-bold text-amber-700">
+              GitHub Commit Evidence
+            </h3>
+            <p className="mt-3 leading-7 text-slate-600">
+              Week 5 includes at least five GitHub commits showing the
+              development process for the Public Guided Academic Assistant.
+              These commits document the creation of the /chat page, guided
+              assistant logic, documentation updates, external testing notes,
+              and guardrail documentation.
+            </p>
+            <ol className="mt-4 list-decimal space-y-2 pl-5 text-slate-600">
+              <li>Add Week 5 guided chat assistant.</li>
+              <li>Update docs for Week 5 guided assistant.</li>
+              <li>Refine Week 5 chat assistant instructions.</li>
+              <li>Add Week 5 external testing notes to docs.</li>
+              <li>Document Week 5 guardrail decision.</li>
+            </ol>
           </section>
 
           <section className="rounded-3xl border border-amber-100 bg-white p-6 shadow-sm">
@@ -241,7 +269,8 @@ export default function DocsPage() {
               <li>Test 4: Select Helpful or Not Helpful and save the session.</li>
               <li>Test 5: Confirm the saved session appears in Supabase.</li>
               <li>Test 6: Refresh /chat and confirm saved sessions remain visible.</li>
-              <li>Test 7: Repeat testing on the deployed Vercel URL.</li>
+              <li>Test 7: Confirm three external tester records appear in Supabase.</li>
+              <li>Test 8: Repeat testing on the deployed Vercel URL.</li>
             </ul>
           </section>
         </div>
